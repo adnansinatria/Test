@@ -1,0 +1,367 @@
+/* GLOBAL LAYOUT */
+.dashboard-layout {
+  position: relative;
+  padding-right: 25px;
+  width: 97.5%;
+  height: 97.5%;
+  padding: 15px;
+  padding-top: 1px;
+  overflow-y: auto;
+  display: flex;
+}
+
+/* GLASS DISK CARD */
+.disk-glass-card {
+  width: 75%;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-radius: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  margin-left: 8px;
+  margin-top: -20px;
+  padding: 22px;
+  padding-bottom: 40px;
+  padding-top: 0px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  position: relative;
+  margin-bottom: -40px;
+  z-index: 4;
+}
+
+.disk-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0d2150;
+  margin-bottom: 12px;
+}
+
+.disk-title span {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.disk-circle-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: auto;
+}
+
+.circle-progress {
+  transition: stroke-dasharray 0.7s ease, transform 0.7s ease;
+}
+
+.disk-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.disk-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  font-weight: 800;
+  color: #194887;
+}
+
+/* LEFT SECTION: CORE */
+.core-section {
+  width: 20%;
+  max-width: 340px;
+  min-width: 220px;
+  padding: 20px;
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  position: relative;
+}
+
+.core-title {
+  font-family: "Post No Bills Colombo", sans-serif;
+  text-align: center;
+  font-size: clamp(30px, 4vw, 70px);
+  letter-spacing: clamp(8px, 2vw, 32px);
+  color: #c7cbd2;
+  margin-left: 18px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+
+/* CARD BASE */
+.core-card {
+  background: #ffd237;
+  padding-top: 20px;
+  border-radius: 20px;
+  margin-bottom: -25px;
+}
+
+.core-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+/* CAPACITY BAR CHART */
+.capacity-bar-chart-container {
+  border-radius: 50px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100px;
+}
+
+.capacity-bar-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  width: 120px;
+  height: 70%;
+  background: rgba(255, 255, 255, 0.241);
+  border-radius: 15px;
+  padding: 12px 8px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.capacity-bar-item.active-bar {
+  transform: scale(1.08);
+}
+
+.capacity-bar-text {
+  position: absolute;
+  z-index: 5;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  pointer-events: none;
+}
+
+.capacity-bar-text.text-visible {
+  color: #ffd237;
+}
+
+.capacity-bar-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.522);
+  transition: height 0.7s ease;
+}
+
+.capacity-bar-fill:hover {
+  background: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.capacity-bar-fill.active-fill {
+  background: #ffffff;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+.capacity-bar-info {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  transition: bottom 0.3s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* RAM */
+.ram-bar-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.ram-value-floating {
+  position: absolute;
+  top: -19px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #194887;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.ram-bar {
+  width: 100%;
+  height: 10px;
+  background: #d2d8e6;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ram-bar-fill {
+  height: 100%;
+  background: #1e4d89;
+  border-radius: 20px;
+  transition: width 0.7s ease;
+}
+
+.ram-ticks {
+  position: absolute;
+  top: 130%;
+  width: 101%;
+  height: 6px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(130, 140, 150, 0.6) 0px,
+    rgba(130, 140, 150, 0.6) 2px,
+    transparent 2px,
+    transparent 26px
+  );
+}
+
+.ram-values {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: -10px;
+  color: black;
+}
+
+/* SETTLEMENT */
+.settlement-row {
+  display: flex;
+  width: 98%;
+  margin-left: -7px;
+  align-items: center;
+  height: 10px;
+  gap: 10px;
+  padding: 16px 15px;
+  margin-top: -10px;
+  padding-right: 5px;
+  border-radius: 16px;
+  border: 2px dashed #c7cbd2;
+  background: transparent;
+  font-size: 12px;
+}
+
+.plus-icon {
+  font-size: 27px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.settlement-name {
+  flex: 1;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.settlement-badge {
+  display: flex;
+  align-items: center;
+  height: 13px;
+  gap: 35px;
+  background: #d0f8d8;
+  padding: 8px 10px 10px 10px;
+  margin-top: 2px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #4ade80;
+}
+
+.settlement-time {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.settlement-icon {
+  display: inline-block;
+  margin-top: 2px;
+  width: 15px;
+  height: 15px;
+  animation: spin 2s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* DIVIDER */
+.divider {
+  width: 2px;
+  background: rgba(0, 0, 0, 0.092);
+  margin: 20px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+
+/* RIGHT PAGE SECTION */
+.dashboard-content {
+  flex: 1;
+  padding-right: 20px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: visible;
+  max-height: 100vh;
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+
+.dashboard-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dashboard-content::-webkit-scrollbar-track {
+  background: #e6e9ee;
+  border-radius: 12px;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb {
+  background: #194887;
+  border-radius: 12px;
+  border: 2px solid #e6e9ee;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+  background: #6d8bb5;
+}
+
+
+/* Title & Subtitle */
+.page-title {
+  font-size: 25px;
+  margin-left: 20px;
+  font-weight: 700;
+  color: #0d2150;
+}
+
+.page-subtitle {
+  font-size: 15px;
+  color: #6b7b95;
+  margin-left: 20px;
+  margin-top: -15px;
+}
+
+.dashboard-gate-list {
+  position: relative;
+  z-index: 3;
+}

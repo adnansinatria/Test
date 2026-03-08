@@ -1,0 +1,277 @@
+.gate-card {
+    width: 320px;
+    padding: 12px;
+    position: absolute;
+    user-select: none;
+    cursor: grab;
+}
+
+.gate-card.dragging {
+    cursor: grabbing;
+}
+
+/* HEADER */
+.gate-card-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: #afafaf;
+    position: absolute;
+    padding-top: 31px;
+    padding-left: 46px;
+}
+
+/* SSE SECTION */
+.sse-wrapper {
+    width: 86%;
+    display: flex;
+    padding-top: 57px;
+    padding-left: 23px;
+    position: absolute;
+    /* justify-content: left; */
+}
+
+/* Title */
+.sse-title {
+    font-family: "Post No Bills Colombo", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    top: 72px;
+    left: 47px;
+    position: absolute;
+    letter-spacing: 2px;
+}
+
+/* Latency + loader */
+.sse-latency-wrapper {
+    position: absolute;
+    right: 23px;
+    top: 71px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sse-latency {
+    font-size: 12px;
+    font-weight: 400;
+    color: #4ade80;
+}
+
+/* Loader circle */
+.gate-status-loader {
+  width: 16px;
+  height: 16px;
+  animation: spin 2s linear infinite;
+  flex-shrink: 0;
+}
+
+.sse-loader {
+  display: inline-block;
+  margin-top: 2px;
+  width: 15px;
+  height: 15px;
+  animation: spin 2s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dashed line */
+.sse-dash {
+    width: 78%;                   
+    position: absolute;
+    top: 100px;                      
+    left: 44px;
+    height: 2px;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.332); 
+}
+
+
+/* METRICS */
+.sse-metrics {
+    position: absolute;
+    top: 115px;
+    left: 46px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 8px;
+}
+
+/* Each metric */
+.metric-item {
+    width: 64px;
+}
+
+.metric-title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.metric-value {
+    display: flex;
+    gap: 2px;
+    font-size: 7.5px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+    align-items: center;
+}
+
+.metric-percent {
+    opacity: 0.7;
+}
+
+
+/* Bar */
+.metric-bar {
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.metric-fill {
+    height: 100%;
+    background: #ffd93d;
+    border-radius: 10px;
+    transition: width 0.7s ease;
+}
+
+.sse-img {
+    width: 100%;
+    height: 130px;
+    border-radius: 15px;
+}
+
+/* SEARCH BAR */
+.searchbar {
+    width: 73%;
+    background-color: #EBEFF3;
+    margin-top: 145px;
+    margin-left: 38px;
+    position: absolute;
+    justify-content: center;
+}
+
+.gate-search {
+    margin: 10px;
+    width: 87%;
+    margin-top: 35px;
+    margin-bottom: 7px;
+    margin-left: 2px;
+}
+
+.gate-search input {
+    width: 98%;
+    padding: 8px 12px;
+    border: 2px solid #d2d2d2;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0);
+    font-size: 13px;
+    color: #000;
+}
+
+.gate-search input::placeholder {
+    color: #777;
+}
+
+.gate-search input:focus {
+    outline: none !important;
+    border-color: #194887 !important;
+    box-shadow: 0 0 4px rgba(25, 72, 135, 0.4);
+}
+
+
+/* GATE SECTION */
+.gate-list-container {
+    width: 100%;
+    position: relative;
+}
+
+.gate-bg {
+    width: 100%;
+    height: 430px;
+    pointer-events: none;
+}
+
+/* Gate list */
+.gate-list {
+    position: absolute;
+    top: 150px;
+    width: 73%;
+    height: 220px;
+    overflow-y: scroll;
+    padding-right: 5px;
+    padding-left: 40px;
+}
+
+/* Custom scroll */
+.gate-list::-webkit-scrollbar {
+    width: 7px;
+    background: #dadada;
+    border-radius: 10px;
+}
+
+.gate-list::-webkit-scrollbar-thumb {
+    background: #194887;
+    border-radius: 10px;
+}
+
+.gate-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    margin-top: 72px;
+    margin-bottom: -64px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.gate-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.gate-error {
+    background: #ffcece;
+    color: #d10000;
+}
+
+.gate-ok {
+    background: #d8ffd8;
+    color: #0c8f18;
+}
+
+.gate-latency {
+    opacity: 0.7;
+}
+
+.gate-highlight {
+  animation: glow 1.2s ease-out;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0px 0 rgba(255, 223, 0, 0.9);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 15px 6px rgba(255, 223, 0, 0.9);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 0px 0 rgba(255, 223, 0, 0);
+    transform: scale(1);
+  }
+}
